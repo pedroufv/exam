@@ -22,13 +22,21 @@ class Exam extends Model
         return Carbon::parse($value)->format('d/m/Y');
     }
 
-    
+
     /**
      * Get the user of Exam.
      */
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    /**
+     * Get the questions of Exam.
+     */
+    public function questions()
+    {
+        return $this->belongsToMany(Question::class);
     }
 
     /**

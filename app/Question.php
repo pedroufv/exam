@@ -12,8 +12,8 @@ class Question extends Model
 
     protected $guarded = ['id'];
 
-    
-    
+
+
     /**
      * Get the subject of Question.
      */
@@ -22,7 +22,7 @@ class Question extends Model
         return $this->belongsTo(Subject::class);
     }
 
-            
+
     /**
      * Get the user of Question.
      */
@@ -31,13 +31,21 @@ class Question extends Model
         return $this->belongsTo(User::class);
     }
 
-            
+
     /**
      * Get the contest of Question.
      */
     public function contest()
     {
         return $this->belongsTo(Contest::class);
+    }
+
+    /**
+     * Get the exams of question.
+     */
+    public function exams()
+    {
+        return $this->belongsToMany(Exam::class);
     }
 
     /**
