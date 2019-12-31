@@ -24,3 +24,7 @@ Route::apiResource('institutions', 'InstitutionController');
 Route::apiResource('contests', 'ContestController');
 
 Route::apiResource('categories', 'CategoryController');
+
+Route::apiResource('sub-categories', 'SubCategoryController');
+
+Route::apiResource('subjects', 'SubjectController');
