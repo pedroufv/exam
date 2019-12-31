@@ -233,6 +233,230 @@
                     }
                 }
             }
+        },
+        "/institutions": {
+            "get": {
+                "tags": [
+                    "institutions"
+                ],
+                "summary": "Display a listing of the resource",
+                "description": "get all institution on database and paginate then",
+                "operationId": "App\\Http\\Controllers\\InstitutionController::index",
+                "parameters": [
+                    {
+                        "name": "only",
+                        "in": "query",
+                        "description": "filter results using field1;field2;field3...",
+                        "style": "form",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "search",
+                        "in": "query",
+                        "description": "search results using key:value",
+                        "style": "form",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "operators",
+                        "in": "query",
+                        "description": "set fileds operators using field1:operator1",
+                        "style": "form",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "sort",
+                        "in": "query",
+                        "description": "order results using field:direction",
+                        "style": "form",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "with",
+                        "in": "query",
+                        "description": "get relations using relation1;relation2;relation3...",
+                        "style": "form",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "define page",
+                        "style": "form",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "limit per page",
+                        "style": "form",
+                        "schema": {
+                            "type": "int"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "List of institutions"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "institutions"
+                ],
+                "summary": "Store a newly created resource in storage.",
+                "description": "store a new institution on database",
+                "operationId": "App\\Http\\Controllers\\InstitutionController::store",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "acronym": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "New institution created"
+                    }
+                }
+            }
+        },
+        "/institutions/{institution}": {
+            "get": {
+                "tags": [
+                    "institutions"
+                ],
+                "summary": "Display the specified resource.",
+                "description": "show institution",
+                "operationId": "App\\Http\\Controllers\\InstitutionController::show",
+                "parameters": [
+                    {
+                        "name": "institution",
+                        "in": "path",
+                        "description": "Institution id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    },
+                    {
+                        "name": "only",
+                        "in": "query",
+                        "description": "filter results using field1;field2;field3...",
+                        "style": "form",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "with",
+                        "in": "query",
+                        "description": "get relations using relation1;relation2;relation3...",
+                        "style": "form",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Show institution"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "institutions"
+                ],
+                "summary": "Update the specified resource in storage",
+                "description": "update a institution on database",
+                "operationId": "App\\Http\\Controllers\\InstitutionController::update",
+                "parameters": [
+                    {
+                        "name": "institution",
+                        "in": "path",
+                        "description": "Institution id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "acronym": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Institution updated"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "institutions"
+                ],
+                "summary": "Remove the specified resource from storage.",
+                "description": "remove a institution on database",
+                "operationId": "App\\Http\\Controllers\\InstitutionController::destroy",
+                "parameters": [
+                    {
+                        "name": "institution",
+                        "in": "path",
+                        "description": "Institution id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Institution deleted"
+                    }
+                }
+            }
         }
     }
 }

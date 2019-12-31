@@ -20,3 +20,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::apiResource('applicators', 'ApplicatorController');
 
 Route::apiResource('institutions', 'InstitutionController');
+
+Route::apiResource('contests', 'ContestController');
