@@ -1,0 +1,238 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "UFV API",
+        "version": "0.0.1"
+    },
+    "servers": [
+        {
+            "url": "/api"
+        }
+    ],
+    "paths": {
+        "/applicators": {
+            "get": {
+                "tags": [
+                    "applicators"
+                ],
+                "summary": "Display a listing of the resource",
+                "description": "get all applicator on database and paginate then",
+                "operationId": "App\\Http\\Controllers\\ApplicatorController::index",
+                "parameters": [
+                    {
+                        "name": "only",
+                        "in": "query",
+                        "description": "filter results using field1;field2;field3...",
+                        "style": "form",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "search",
+                        "in": "query",
+                        "description": "search results using key:value",
+                        "style": "form",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "operators",
+                        "in": "query",
+                        "description": "set fileds operators using field1:operator1",
+                        "style": "form",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "sort",
+                        "in": "query",
+                        "description": "order results using field:direction",
+                        "style": "form",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "with",
+                        "in": "query",
+                        "description": "get relations using relation1;relation2;relation3...",
+                        "style": "form",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "define page",
+                        "style": "form",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "limit per page",
+                        "style": "form",
+                        "schema": {
+                            "type": "int"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "List of applicators"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "applicators"
+                ],
+                "summary": "Store a newly created resource in storage.",
+                "description": "store a new applicator on database",
+                "operationId": "App\\Http\\Controllers\\ApplicatorController::store",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "acronym": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "New applicator created"
+                    }
+                }
+            }
+        },
+        "/applicators/{applicator}": {
+            "get": {
+                "tags": [
+                    "applicators"
+                ],
+                "summary": "Display the specified resource.",
+                "description": "show applicator",
+                "operationId": "App\\Http\\Controllers\\ApplicatorController::show",
+                "parameters": [
+                    {
+                        "name": "applicator",
+                        "in": "path",
+                        "description": "Applicator id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    },
+                    {
+                        "name": "only",
+                        "in": "query",
+                        "description": "filter results using field1;field2;field3...",
+                        "style": "form",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "with",
+                        "in": "query",
+                        "description": "get relations using relation1;relation2;relation3...",
+                        "style": "form",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Show applicator"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "applicators"
+                ],
+                "summary": "Update the specified resource in storage",
+                "description": "update a applicator on database",
+                "operationId": "App\\Http\\Controllers\\ApplicatorController::update",
+                "parameters": [
+                    {
+                        "name": "applicator",
+                        "in": "path",
+                        "description": "Applicator id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "acronym": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Applicator updated"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "applicators"
+                ],
+                "summary": "Remove the specified resource from storage.",
+                "description": "remove a applicator on database",
+                "operationId": "App\\Http\\Controllers\\ApplicatorController::destroy",
+                "parameters": [
+                    {
+                        "name": "applicator",
+                        "in": "path",
+                        "description": "Applicator id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Applicator deleted"
+                    }
+                }
+            }
+        }
+    }
+}
