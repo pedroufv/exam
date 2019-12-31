@@ -22,3 +22,5 @@ Route::apiResource('applicators', 'ApplicatorController');
 Route::apiResource('institutions', 'InstitutionController');
 
 Route::apiResource('contests', 'ContestController');
+
+Route::apiResource('categories', 'CategoryController');
