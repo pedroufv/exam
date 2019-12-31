@@ -32,3 +32,5 @@ Route::apiResource('subjects', 'SubjectController');
 Route::apiResource('questions', 'QuestionController');
 
 Route::apiResource('options', 'OptionController');
+
+Route::apiResource('exams', 'ExamController');
