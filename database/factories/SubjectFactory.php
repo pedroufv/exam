@@ -9,6 +9,6 @@ $factory->define(Subject::class, function (Faker $faker) {
     return [
         'name' => $faker->text(),
         'description' => $faker->text(),
-        'subcategory_id' => factory(App\Subcategory::class),
+        'sub_category_id' => factory(App\SubCategory::class),
     ];
 });

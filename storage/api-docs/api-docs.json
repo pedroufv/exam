@@ -700,6 +700,242 @@
                 }
             }
         },
+        "/exams": {
+            "get": {
+                "tags": [
+                    "exams"
+                ],
+                "summary": "Display a listing of the resource",
+                "description": "get all exam on database and paginate then",
+                "operationId": "App\\Http\\Controllers\\ExamController::index",
+                "parameters": [
+                    {
+                        "name": "only",
+                        "in": "query",
+                        "description": "filter results using field1;field2;field3...",
+                        "style": "form",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "search",
+                        "in": "query",
+                        "description": "search results using key:value",
+                        "style": "form",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "operators",
+                        "in": "query",
+                        "description": "set fileds operators using field1:operator1",
+                        "style": "form",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "sort",
+                        "in": "query",
+                        "description": "order results using field:direction",
+                        "style": "form",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "with",
+                        "in": "query",
+                        "description": "get relations using relation1;relation2;relation3...",
+                        "style": "form",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "define page",
+                        "style": "form",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "limit per page",
+                        "style": "form",
+                        "schema": {
+                            "type": "int"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "List of exams"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "exams"
+                ],
+                "summary": "Store a newly created resource in storage.",
+                "description": "store a new exam on database",
+                "operationId": "App\\Http\\Controllers\\ExamController::store",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "amount": {
+                                        "type": "integer"
+                                    },
+                                    "finished_at": {
+                                        "type": "string"
+                                    },
+                                    "filters": {
+                                        "type": "string"
+                                    },
+                                    "user_id": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "New exam created"
+                    }
+                }
+            }
+        },
+        "/exams/{exam}": {
+            "get": {
+                "tags": [
+                    "exams"
+                ],
+                "summary": "Display the specified resource.",
+                "description": "show exam",
+                "operationId": "App\\Http\\Controllers\\ExamController::show",
+                "parameters": [
+                    {
+                        "name": "exam",
+                        "in": "path",
+                        "description": "Exam id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    },
+                    {
+                        "name": "only",
+                        "in": "query",
+                        "description": "filter results using field1;field2;field3...",
+                        "style": "form",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "with",
+                        "in": "query",
+                        "description": "get relations using relation1;relation2;relation3...",
+                        "style": "form",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Show exam"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "exams"
+                ],
+                "summary": "Update the specified resource in storage",
+                "description": "update a exam on database",
+                "operationId": "App\\Http\\Controllers\\ExamController::update",
+                "parameters": [
+                    {
+                        "name": "exam",
+                        "in": "path",
+                        "description": "Exam id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "amount": {
+                                        "type": "integer"
+                                    },
+                                    "finished_at": {
+                                        "type": "string"
+                                    },
+                                    "filters": {
+                                        "type": "string"
+                                    },
+                                    "user_id": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Exam updated"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "exams"
+                ],
+                "summary": "Remove the specified resource from storage.",
+                "description": "remove a exam on database",
+                "operationId": "App\\Http\\Controllers\\ExamController::destroy",
+                "parameters": [
+                    {
+                        "name": "exam",
+                        "in": "path",
+                        "description": "Exam id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Exam deleted"
+                    }
+                }
+            }
+        },
         "/institutions": {
             "get": {
                 "tags": [
@@ -920,6 +1156,236 @@
                 "responses": {
                     "200": {
                         "description": "Institution deleted"
+                    }
+                }
+            }
+        },
+        "/options": {
+            "get": {
+                "tags": [
+                    "options"
+                ],
+                "summary": "Display a listing of the resource",
+                "description": "get all option on database and paginate then",
+                "operationId": "App\\Http\\Controllers\\OptionController::index",
+                "parameters": [
+                    {
+                        "name": "only",
+                        "in": "query",
+                        "description": "filter results using field1;field2;field3...",
+                        "style": "form",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "search",
+                        "in": "query",
+                        "description": "search results using key:value",
+                        "style": "form",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "operators",
+                        "in": "query",
+                        "description": "set fileds operators using field1:operator1",
+                        "style": "form",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "sort",
+                        "in": "query",
+                        "description": "order results using field:direction",
+                        "style": "form",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "with",
+                        "in": "query",
+                        "description": "get relations using relation1;relation2;relation3...",
+                        "style": "form",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "define page",
+                        "style": "form",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "limit per page",
+                        "style": "form",
+                        "schema": {
+                            "type": "int"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "List of options"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "options"
+                ],
+                "summary": "Store a newly created resource in storage.",
+                "description": "store a new option on database",
+                "operationId": "App\\Http\\Controllers\\OptionController::store",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "statement": {
+                                        "type": "string"
+                                    },
+                                    "correct": {
+                                        "type": "boolean"
+                                    },
+                                    "question_id": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "New option created"
+                    }
+                }
+            }
+        },
+        "/options/{option}": {
+            "get": {
+                "tags": [
+                    "options"
+                ],
+                "summary": "Display the specified resource.",
+                "description": "show option",
+                "operationId": "App\\Http\\Controllers\\OptionController::show",
+                "parameters": [
+                    {
+                        "name": "option",
+                        "in": "path",
+                        "description": "Option id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    },
+                    {
+                        "name": "only",
+                        "in": "query",
+                        "description": "filter results using field1;field2;field3...",
+                        "style": "form",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "with",
+                        "in": "query",
+                        "description": "get relations using relation1;relation2;relation3...",
+                        "style": "form",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Show option"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "options"
+                ],
+                "summary": "Update the specified resource in storage",
+                "description": "update a option on database",
+                "operationId": "App\\Http\\Controllers\\OptionController::update",
+                "parameters": [
+                    {
+                        "name": "option",
+                        "in": "path",
+                        "description": "Option id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "statement": {
+                                        "type": "string"
+                                    },
+                                    "correct": {
+                                        "type": "boolean"
+                                    },
+                                    "question_id": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Option updated"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "options"
+                ],
+                "summary": "Remove the specified resource from storage.",
+                "description": "remove a option on database",
+                "operationId": "App\\Http\\Controllers\\OptionController::destroy",
+                "parameters": [
+                    {
+                        "name": "option",
+                        "in": "path",
+                        "description": "Option id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Option deleted"
                     }
                 }
             }
