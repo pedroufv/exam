@@ -234,6 +234,472 @@
                 }
             }
         },
+        "/categories": {
+            "get": {
+                "tags": [
+                    "categories"
+                ],
+                "summary": "Display a listing of the resource",
+                "description": "get all category on database and paginate then",
+                "operationId": "App\\Http\\Controllers\\CategoryController::index",
+                "parameters": [
+                    {
+                        "name": "only",
+                        "in": "query",
+                        "description": "filter results using field1;field2;field3...",
+                        "style": "form",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "search",
+                        "in": "query",
+                        "description": "search results using key:value",
+                        "style": "form",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "operators",
+                        "in": "query",
+                        "description": "set fileds operators using field1:operator1",
+                        "style": "form",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "sort",
+                        "in": "query",
+                        "description": "order results using field:direction",
+                        "style": "form",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "with",
+                        "in": "query",
+                        "description": "get relations using relation1;relation2;relation3...",
+                        "style": "form",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "define page",
+                        "style": "form",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "limit per page",
+                        "style": "form",
+                        "schema": {
+                            "type": "int"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "List of categories"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "categories"
+                ],
+                "summary": "Store a newly created resource in storage.",
+                "description": "store a new category on database",
+                "operationId": "App\\Http\\Controllers\\CategoryController::store",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "description": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "New category created"
+                    }
+                }
+            }
+        },
+        "/categories/{category}": {
+            "get": {
+                "tags": [
+                    "categories"
+                ],
+                "summary": "Display the specified resource.",
+                "description": "show category",
+                "operationId": "App\\Http\\Controllers\\CategoryController::show",
+                "parameters": [
+                    {
+                        "name": "category",
+                        "in": "path",
+                        "description": "Category id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    },
+                    {
+                        "name": "only",
+                        "in": "query",
+                        "description": "filter results using field1;field2;field3...",
+                        "style": "form",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "with",
+                        "in": "query",
+                        "description": "get relations using relation1;relation2;relation3...",
+                        "style": "form",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Show category"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "categories"
+                ],
+                "summary": "Update the specified resource in storage",
+                "description": "update a category on database",
+                "operationId": "App\\Http\\Controllers\\CategoryController::update",
+                "parameters": [
+                    {
+                        "name": "category",
+                        "in": "path",
+                        "description": "Category id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "description": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Category updated"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "categories"
+                ],
+                "summary": "Remove the specified resource from storage.",
+                "description": "remove a category on database",
+                "operationId": "App\\Http\\Controllers\\CategoryController::destroy",
+                "parameters": [
+                    {
+                        "name": "category",
+                        "in": "path",
+                        "description": "Category id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Category deleted"
+                    }
+                }
+            }
+        },
+        "/contests": {
+            "get": {
+                "tags": [
+                    "contests"
+                ],
+                "summary": "Display a listing of the resource",
+                "description": "get all contest on database and paginate then",
+                "operationId": "App\\Http\\Controllers\\ContestController::index",
+                "parameters": [
+                    {
+                        "name": "only",
+                        "in": "query",
+                        "description": "filter results using field1;field2;field3...",
+                        "style": "form",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "search",
+                        "in": "query",
+                        "description": "search results using key:value",
+                        "style": "form",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "operators",
+                        "in": "query",
+                        "description": "set fileds operators using field1:operator1",
+                        "style": "form",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "sort",
+                        "in": "query",
+                        "description": "order results using field:direction",
+                        "style": "form",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "with",
+                        "in": "query",
+                        "description": "get relations using relation1;relation2;relation3...",
+                        "style": "form",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "define page",
+                        "style": "form",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "limit per page",
+                        "style": "form",
+                        "schema": {
+                            "type": "int"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "List of contests"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "contests"
+                ],
+                "summary": "Store a newly created resource in storage.",
+                "description": "store a new contest on database",
+                "operationId": "App\\Http\\Controllers\\ContestController::store",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "year": {
+                                        "type": "string"
+                                    },
+                                    "number": {
+                                        "type": "integer"
+                                    },
+                                    "institution_id": {
+                                        "type": "integer"
+                                    },
+                                    "applicator_id": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "New contest created"
+                    }
+                }
+            }
+        },
+        "/contests/{contest}": {
+            "get": {
+                "tags": [
+                    "contests"
+                ],
+                "summary": "Display the specified resource.",
+                "description": "show contest",
+                "operationId": "App\\Http\\Controllers\\ContestController::show",
+                "parameters": [
+                    {
+                        "name": "contest",
+                        "in": "path",
+                        "description": "Contest id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    },
+                    {
+                        "name": "only",
+                        "in": "query",
+                        "description": "filter results using field1;field2;field3...",
+                        "style": "form",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "with",
+                        "in": "query",
+                        "description": "get relations using relation1;relation2;relation3...",
+                        "style": "form",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Show contest"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "contests"
+                ],
+                "summary": "Update the specified resource in storage",
+                "description": "update a contest on database",
+                "operationId": "App\\Http\\Controllers\\ContestController::update",
+                "parameters": [
+                    {
+                        "name": "contest",
+                        "in": "path",
+                        "description": "Contest id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "year": {
+                                        "type": "string"
+                                    },
+                                    "number": {
+                                        "type": "integer"
+                                    },
+                                    "institution_id": {
+                                        "type": "integer"
+                                    },
+                                    "applicator_id": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Contest updated"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "contests"
+                ],
+                "summary": "Remove the specified resource from storage.",
+                "description": "remove a contest on database",
+                "operationId": "App\\Http\\Controllers\\ContestController::destroy",
+                "parameters": [
+                    {
+                        "name": "contest",
+                        "in": "path",
+                        "description": "Contest id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Contest deleted"
+                    }
+                }
+            }
+        },
         "/institutions": {
             "get": {
                 "tags": [
@@ -454,6 +920,702 @@
                 "responses": {
                     "200": {
                         "description": "Institution deleted"
+                    }
+                }
+            }
+        },
+        "/questions": {
+            "get": {
+                "tags": [
+                    "questions"
+                ],
+                "summary": "Display a listing of the resource",
+                "description": "get all question on database and paginate then",
+                "operationId": "App\\Http\\Controllers\\QuestionController::index",
+                "parameters": [
+                    {
+                        "name": "only",
+                        "in": "query",
+                        "description": "filter results using field1;field2;field3...",
+                        "style": "form",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "search",
+                        "in": "query",
+                        "description": "search results using key:value",
+                        "style": "form",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "operators",
+                        "in": "query",
+                        "description": "set fileds operators using field1:operator1",
+                        "style": "form",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "sort",
+                        "in": "query",
+                        "description": "order results using field:direction",
+                        "style": "form",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "with",
+                        "in": "query",
+                        "description": "get relations using relation1;relation2;relation3...",
+                        "style": "form",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "define page",
+                        "style": "form",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "limit per page",
+                        "style": "form",
+                        "schema": {
+                            "type": "int"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "List of questions"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "questions"
+                ],
+                "summary": "Store a newly created resource in storage.",
+                "description": "store a new question on database",
+                "operationId": "App\\Http\\Controllers\\QuestionController::store",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "statement": {
+                                        "type": "string"
+                                    },
+                                    "subject_id": {
+                                        "type": "integer"
+                                    },
+                                    "user_id": {
+                                        "type": "integer"
+                                    },
+                                    "contest_id": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "New question created"
+                    }
+                }
+            }
+        },
+        "/questions/{question}": {
+            "get": {
+                "tags": [
+                    "questions"
+                ],
+                "summary": "Display the specified resource.",
+                "description": "show question",
+                "operationId": "App\\Http\\Controllers\\QuestionController::show",
+                "parameters": [
+                    {
+                        "name": "question",
+                        "in": "path",
+                        "description": "Question id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    },
+                    {
+                        "name": "only",
+                        "in": "query",
+                        "description": "filter results using field1;field2;field3...",
+                        "style": "form",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "with",
+                        "in": "query",
+                        "description": "get relations using relation1;relation2;relation3...",
+                        "style": "form",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Show question"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "questions"
+                ],
+                "summary": "Update the specified resource in storage",
+                "description": "update a question on database",
+                "operationId": "App\\Http\\Controllers\\QuestionController::update",
+                "parameters": [
+                    {
+                        "name": "question",
+                        "in": "path",
+                        "description": "Question id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "statement": {
+                                        "type": "string"
+                                    },
+                                    "subject_id": {
+                                        "type": "integer"
+                                    },
+                                    "user_id": {
+                                        "type": "integer"
+                                    },
+                                    "contest_id": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Question updated"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "questions"
+                ],
+                "summary": "Remove the specified resource from storage.",
+                "description": "remove a question on database",
+                "operationId": "App\\Http\\Controllers\\QuestionController::destroy",
+                "parameters": [
+                    {
+                        "name": "question",
+                        "in": "path",
+                        "description": "Question id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Question deleted"
+                    }
+                }
+            }
+        },
+        "/sub-categories": {
+            "get": {
+                "tags": [
+                    "sub-categories"
+                ],
+                "summary": "Display a listing of the resource",
+                "description": "get all sub_category on database and paginate then",
+                "operationId": "App\\Http\\Controllers\\SubCategoryController::index",
+                "parameters": [
+                    {
+                        "name": "only",
+                        "in": "query",
+                        "description": "filter results using field1;field2;field3...",
+                        "style": "form",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "search",
+                        "in": "query",
+                        "description": "search results using key:value",
+                        "style": "form",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "operators",
+                        "in": "query",
+                        "description": "set fileds operators using field1:operator1",
+                        "style": "form",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "sort",
+                        "in": "query",
+                        "description": "order results using field:direction",
+                        "style": "form",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "with",
+                        "in": "query",
+                        "description": "get relations using relation1;relation2;relation3...",
+                        "style": "form",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "define page",
+                        "style": "form",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "limit per page",
+                        "style": "form",
+                        "schema": {
+                            "type": "int"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "List of sub_categories"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "sub-categories"
+                ],
+                "summary": "Store a newly created resource in storage.",
+                "description": "store a new sub_category on database",
+                "operationId": "App\\Http\\Controllers\\SubCategoryController::store",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "description": {
+                                        "type": "string"
+                                    },
+                                    "category_id": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "New sub_category created"
+                    }
+                }
+            }
+        },
+        "/sub-categories/{sub_category}": {
+            "get": {
+                "tags": [
+                    "sub-categories"
+                ],
+                "summary": "Display the specified resource.",
+                "description": "show sub_category",
+                "operationId": "App\\Http\\Controllers\\SubCategoryController::show",
+                "parameters": [
+                    {
+                        "name": "sub_category",
+                        "in": "path",
+                        "description": "SubCategory id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    },
+                    {
+                        "name": "only",
+                        "in": "query",
+                        "description": "filter results using field1;field2;field3...",
+                        "style": "form",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "with",
+                        "in": "query",
+                        "description": "get relations using relation1;relation2;relation3...",
+                        "style": "form",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Show sub_category"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "sub-categories"
+                ],
+                "summary": "Update the specified resource in storage",
+                "description": "update a sub_category on database",
+                "operationId": "App\\Http\\Controllers\\SubCategoryController::update",
+                "parameters": [
+                    {
+                        "name": "sub_category",
+                        "in": "path",
+                        "description": "SubCategory id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "description": {
+                                        "type": "string"
+                                    },
+                                    "category_id": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "SubCategory updated"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "sub-categories"
+                ],
+                "summary": "Remove the specified resource from storage.",
+                "description": "remove a sub_category on database",
+                "operationId": "App\\Http\\Controllers\\SubCategoryController::destroy",
+                "parameters": [
+                    {
+                        "name": "sub_category",
+                        "in": "path",
+                        "description": "SubCategory id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "SubCategory deleted"
+                    }
+                }
+            }
+        },
+        "/subjects": {
+            "get": {
+                "tags": [
+                    "subjects"
+                ],
+                "summary": "Display a listing of the resource",
+                "description": "get all subject on database and paginate then",
+                "operationId": "App\\Http\\Controllers\\SubjectController::index",
+                "parameters": [
+                    {
+                        "name": "only",
+                        "in": "query",
+                        "description": "filter results using field1;field2;field3...",
+                        "style": "form",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "search",
+                        "in": "query",
+                        "description": "search results using key:value",
+                        "style": "form",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "operators",
+                        "in": "query",
+                        "description": "set fileds operators using field1:operator1",
+                        "style": "form",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "sort",
+                        "in": "query",
+                        "description": "order results using field:direction",
+                        "style": "form",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "with",
+                        "in": "query",
+                        "description": "get relations using relation1;relation2;relation3...",
+                        "style": "form",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "define page",
+                        "style": "form",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "limit per page",
+                        "style": "form",
+                        "schema": {
+                            "type": "int"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "List of subjects"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "subjects"
+                ],
+                "summary": "Store a newly created resource in storage.",
+                "description": "store a new subject on database",
+                "operationId": "App\\Http\\Controllers\\SubjectController::store",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "description": {
+                                        "type": "string"
+                                    },
+                                    "subcategory_id": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "New subject created"
+                    }
+                }
+            }
+        },
+        "/subjects/{subject}": {
+            "get": {
+                "tags": [
+                    "subjects"
+                ],
+                "summary": "Display the specified resource.",
+                "description": "show subject",
+                "operationId": "App\\Http\\Controllers\\SubjectController::show",
+                "parameters": [
+                    {
+                        "name": "subject",
+                        "in": "path",
+                        "description": "Subject id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    },
+                    {
+                        "name": "only",
+                        "in": "query",
+                        "description": "filter results using field1;field2;field3...",
+                        "style": "form",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "with",
+                        "in": "query",
+                        "description": "get relations using relation1;relation2;relation3...",
+                        "style": "form",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Show subject"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "subjects"
+                ],
+                "summary": "Update the specified resource in storage",
+                "description": "update a subject on database",
+                "operationId": "App\\Http\\Controllers\\SubjectController::update",
+                "parameters": [
+                    {
+                        "name": "subject",
+                        "in": "path",
+                        "description": "Subject id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "description": {
+                                        "type": "string"
+                                    },
+                                    "subcategory_id": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Subject updated"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "subjects"
+                ],
+                "summary": "Remove the specified resource from storage.",
+                "description": "remove a subject on database",
+                "operationId": "App\\Http\\Controllers\\SubjectController::destroy",
+                "parameters": [
+                    {
+                        "name": "subject",
+                        "in": "path",
+                        "description": "Subject id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Subject deleted"
                     }
                 }
             }

@@ -28,3 +28,7 @@ Route::apiResource('categories', 'CategoryController');
 Route::apiResource('sub-categories', 'SubCategoryController');
 
 Route::apiResource('subjects', 'SubjectController');
+
+Route::apiResource('questions', 'QuestionController');
+
+Route::apiResource('options', 'OptionController');
