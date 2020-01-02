@@ -277,7 +277,7 @@ trait RequestQueryBuildable
                 array_push($fields, 'id');
 
             $relations[$relationName] = function ($query) use ($fields) {
-                $query->select($fields)->withoutGlobalScope('relations');
+                $query->select($fields)->withoutGlobalScopes(['only', 'sort', 'relations']);
             };
 
         }
